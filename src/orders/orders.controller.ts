@@ -1,6 +1,5 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { OrdersService } from './orders.service';
-import { log } from 'util';
 import { CreateOrderDto } from './dto/create-order.dto';
 
 @Controller('orders')
@@ -9,13 +8,11 @@ export class OrdersController {
 
   @Get()
   getAll(@Body() body): string {
-    log(body);
     return this.ordersService.getAll();
   }
 
   @Get(':id')
   getOne(@Param('id') id): string {
-    log(id);
     return this.ordersService.getOne(id);
   }
 
